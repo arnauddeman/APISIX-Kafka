@@ -3,14 +3,14 @@ APISIX and Kafka integration experimentation.
 
 **N.B.:** 
 - This repository has been set for linux. Under another OS the commands and npm scripts may have to be adapted.
-- If the conainer's name for apisix is not **example-apisix-1**, adapt the npm scripts in package.json with the actual name.
+- If the conainer's name for apisix is not **example-apisix-1**, adapt the npm scripts in **package.json* with the actual name.
 
 ## Principle: 
-- There are 2 docker compose files. One for apisix: **apisix-docker/example/docker.compose.yml** and one for kafka: kafka/docker-compose.yml
-- The file package.json contains the scripts to make the tests: start/ stop containers, start the client, apply the patch, etc. 
-- The client to test the APISIX route for kafka is src/kafka-route-client.ts. It is a nodejs script.
-- The file src/pubsub.proto has been copied form the apisix docker container.
-- The file src/patched-pubsub.lua is the modified file in order to recieve the messages.
+- There are 2 docker compose files. One for apisix: **apisix-docker/example/docker.compose.yml** and one for kafka: **kafka/docker-compose.yml**
+- The file **package.json** contains the scripts to make the tests: start/ stop containers, start the client, apply the patch, etc. 
+- The client to test the APISIX route for kafka is **src/kafka-route-client.ts**. It is a nodejs script.
+- The file **src/pubsub.proto** has been copied form the apisix docker container.
+- The file **src/patched-pubsub.lua** is the modified file in order to recieve the messages.
 
 ## How to make the test
 
@@ -81,7 +81,7 @@ npm run send-messages
 ```
 Each line will be a message sent to kafka.
 
-8. Check sent message with Kafka UI (optional)
+8. View the messages with Kafka UI (optional)
 Open  [Kafka UI](http://localhost:8082) and navigate to Topics/apisix_test/Messages
  
 9. Compile and start The nodejs client (no message should be recieved)
@@ -97,14 +97,12 @@ PubSubReq and PubSubResp types loaded
 Sending PubSubReq, topic apisix_test
 In send callback:  no error detected
 ```
-
-
 8. Stop the client (CTRL C)
 
 9. Apply the patch and restart the Apisix container:
 npm run patch
 
-9. Start the client (Messages should be recieved)
+9. Start the client (messages should be recieved)
 ```
 npm run start-client
 ```
@@ -113,7 +111,7 @@ or to avoid compilation:
 node dist/kafka-route-client.js
 ```
 
-Expected output:
+Expected output example:
 ```
 Loading protobuf file: (...)/src/pubsub.proto
 File pubsub.proto loaded
