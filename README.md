@@ -99,7 +99,7 @@ In send callback:  no error detected
 ```
 8. Stop the client (CTRL C)
 
-9. Apply the patch and restart the Apisix container:
+9. Apply the patch and restart the Apisix container:<br/>
 npm run patch
 
 9. Start the client (messages should be recieved)
