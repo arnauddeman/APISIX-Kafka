@@ -28,7 +28,7 @@ npm run start-containers
 ```
 npm run ls-containers
 ```
-Example of output:
+Example of outputs:
 ```
 > apisix-kafka@1.0.0 ls-containers
 > docker ps --last 8 --format 'table {{.ID}}    {{.Names}}      {{.Status}}     {{.Ports}}'
@@ -79,7 +79,7 @@ curl --location --request PUT 'http://127.0.0.1:9180/apisix/admin/routes/kafka' 
 ```
 npm run send-messages
 ```
-Each line will be a message sent to kafka.
+Each line entered in the console will be a message sent to kafka.
 
 8. View the messages with Kafka UI (optional)
 Open  [Kafka UI](http://localhost:8082) and navigate to Topics/apisix_test/Messages
@@ -88,7 +88,7 @@ Open  [Kafka UI](http://localhost:8082) and navigate to Topics/apisix_test/Messa
 ```
 npm run start-client
 ```
-Expected output:
+Expected outputs:
 ```
 Loading protobuf file: (...)/dist/../src/pubsub.proto
 File pubsub.proto loaded
@@ -111,7 +111,7 @@ or to avoid compilation:
 node dist/kafka-route-client.js
 ```
 
-Expected output example:
+Expected outputs example:
 ```
 Loading protobuf file: (...)/src/pubsub.proto
 File pubsub.proto loaded
