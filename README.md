@@ -79,7 +79,7 @@ curl --location --request PUT 'http://127.0.0.1:9180/apisix/admin/routes/kafka' 
 ```
 npm run send-messages
 ```
-Each line entered in the console will be a message sent to kafka.
+Each line entered in the console will be a message sent to kafka (CRTL C to stop).
 
 8. View the messages with Kafka UI (optional)
 Open  [Kafka UI](http://localhost:8082) and navigate to Topics/apisix_test/Messages
