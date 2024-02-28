@@ -3,10 +3,10 @@ APISIX and Kafka integration experimentation.
 
 **N.B.:** 
 - This repository has been set for linux. Under another OS the commands and npm scripts may have to be adapted.
-- The containers names for apisix are not set in the docker compose file and may vary. I this cas some npm scripts may be adapted: replace example-apisix-1 with the actual apisix container's name.
+- If the conainer's name for apisix is not **example-apisix-1**, adapt the npm scripts in package.json with the actual name.
 
 ## Principle: 
-- There are 2 docker compose files. One for apisix: apisix-docker/example/docker.compose.yml and one for kafka: kafka/docker-compose.yml
+- There are 2 docker compose files. One for apisix: **apisix-docker/example/docker.compose.yml** and one for kafka: kafka/docker-compose.yml
 - The file package.json contains the scripts to make the tests: start/ stop containers, start the client, apply the patch, etc. 
 - The client to test the APISIX route for kafka is src/kafka-route-client.ts. It is a nodejs script.
 - The file src/pubsub.proto has been copied form the apisix docker container.
@@ -84,7 +84,7 @@ Each line will be a message sent to kafka.
 8. Check sent message with Kafka UI (optional)
 Open  [Kafka UI](http://localhost:8082) and navigate to Topics/apisix_test/Messages
  
-9. Compile and start The nodejs client 
+9. Compile and start The nodejs client (no message should be recieved)
 ```
 npm run start-client
 ```
@@ -98,14 +98,13 @@ Sending PubSubReq, topic apisix_test
 In send callback:  no error detected
 ```
 
-The client should not recieve the messages.
 
 8. Stop the client (CTRL C)
 
 9. Apply the patch and restart the Apisix container:
 npm run patch
 
-9. Start the client ()
+9. Start the client (Messages should be recieved)
 ```
 npm run start-client
 ```
