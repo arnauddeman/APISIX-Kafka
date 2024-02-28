@@ -97,9 +97,10 @@ PubSubReq and PubSubResp types loaded
 Sending PubSubReq, topic apisix_test
 In send callback:  no error detected
 ```
-8. Stop the client (CTRL C)
+8. Stop the client: CTRL+C
 
-9. Apply the patch and restart the Apisix container:<br/>
+9. Apply the patch and restart the Apisix container:
+```
 npm run patch
 
 9. Start the client (messages should be recieved)
