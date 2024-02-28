@@ -102,9 +102,10 @@ In send callback:  no error detected
 9. Apply the patch and restart the Apisix container:
 ```
 npm run patch
+```
 
 9. Start the client (messages should be recieved)
-```
+
 npm run start-client
 ```
 or to avoid compilation:
