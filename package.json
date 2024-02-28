@@ -1,0 +1,50 @@
+{
+  "name": "apisix-kafka",
+  "version": "1.0.0",
+  "description": "Experimentations around APISIX and Kafka integration.",
+  "main": "index.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "start-containers": "docker compose -f apisix-docker/example/docker-compose.yml up --build -d && docker compose -f kafka/docker-compose.yml up --build -d",
+    "start-apisix-containers": "docker compose -f apisix-docker/example/docker-compose.yml up --build",
+    "start-kafka-containers": "docker compose -f kafka/docker-compose.yml up --build ",
+    "stop-containers": "docker compose -f kafka/docker-compose.yml down && docker compose -f apisix-docker/example/docker-compose.yml down",
+    "ls-containers": "docker ps --last 8 --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'",
+    "start-client": "npm run build-ts && node dist/kafka-route-client.js",
+    "send-messages": "docker exec -it apxkfk_kafka kafka-console-producer --broker-list localhost:29092 --topic apisix_test",
+    "create-topic": "docker exec apxkfk_kafka kafka-topics  --create --bootstrap-server localhost:29092 --replication-factor 1 --partitions 1 --topic apisix_test",
+    "ls-topics": "docker exec apxkfk_kafka kafka-topics --list --bootstrap-server localhost:29092",
+    "patch": "docker cp src/patched-pubsub.lua example-apisix-1:/usr/local/apisix//apisix/core/pubsub.lua && docker restart example-apisix-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/arnauddeman/APISIX-Kafka.git"
+  },
+  "keywords": [
+    "Test",
+    "of",
+    "integration",
+    "of",
+    "Kafka",
+    "with",
+    "APISIX."
+  ],
+  "author": "Arnaud Deman",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/arnauddeman/APISIX-Kafka/issues"
+  },
+  "homepage": "https://github.com/arnauddeman/APISIX-Kafka#readme",
+  "dependencies": {
+    "@stomp/stompjs": "^7.0.0",
+    "protobufjs": "^7.2.6",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "@types/kafka-node": "^3.0.0",
+    "@types/node": "^20.11.21",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.3.3"
+  }
+}
