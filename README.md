@@ -16,7 +16,7 @@ APISIX and Kafka integration experimentation.
 
 1. Get The repository
 ```
-git clone git@github.com:arnauddeman/APISIX-Kafka.git --recurse
+git clone https://github.com/arnauddeman/APISIX-Kafka.git --recurse
 cd APISIX-Kafka
 npm i
 ```
