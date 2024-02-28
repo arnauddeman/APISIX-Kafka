@@ -3,7 +3,7 @@ APISIX and Kafka integration experimentation.
 
 **N.B.:** 
 - This repository has been set for linux. Under another OS the commands and npm scripts may have to be adapted.
-- If the conainer's name for apisix is not **example-apisix-1**, adapt the npm scripts in **package.json* with the actual name.
+- If the conainer's name for apisix is not **example-apisix-1**, adapt the npm scripts in **package.json** with the actual name.
 
 ## Principle: 
 - There are 2 docker compose files. One for apisix: **apisix-docker/example/docker.compose.yml** and one for kafka: **kafka/docker-compose.yml**
